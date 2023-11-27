@@ -1,0 +1,275 @@
+
+\chapter{本期是系列教程的第三期}
+
+这一期的重点是介绍 \LaTeX 语法和命令
+
+\section{写在前面}
+\subsection{什么是“够用”}
+本系列视频给“够用”设定的边界：在使用现成模版的情况下，知道常用的基本命令和场景，对于高级和进阶的需求，知道去哪里寻找解决方案。
+
+这对于Up（@六边形游乐场）和观众来说都是一种挑战，过于絮叨会看不下去，过于简单又不负责任。我尽量吧，还请坚持过最开始的五分钟。
+
+\subsection{如何进阶}
+1. 推荐通过 Overleaf 官方帮助文档学习 \url{https://www.overleaf.com/learn}; 
+
+2. 下载一份 Cheat Sheet 速查手册，在评论区顶部我会提供一份下载链接；
+
+3. 目前这个文档本身（.tex文件和PDF文件），也会在评论区顶部提供下载链接，还请不要忘记一键三连，这次一定！
+
+\section{基础知识}
+% 首先，什么是注释
+% 右边的界面不会显示这里的内容
+% 可以用来给自己写一些备注，或者隐藏掉废弃但是不舍得删除的内容
+% 单行注释的语法：以百分号 % 开头
+
+% 下面出现的大部分注释，是给想要进一步进阶的观众朋友提供的信息，视频里都不会去念出来，还请有兴趣的朋友自行下载本文档详细了解
+
+\subsection{命令 Command}
+%凡是标题里带着英文翻译的地方，都是搜索关键字，需要进一步了解的同学可以自行去 Google 或 Overleaf 搜索了解更多内容
+
+命令是 \LaTeX 里最基本的指令语句，以反斜杠开头，一般以空格结束，形态是：
+
+\begin{verbatim}
+    \command[可选参数]{必选参数}
+\end{verbatim}
+
+关于命令的知识：\\
+0. 命令区分大小写； \\
+1. 有些命令可以没有任何参数，比如说\verb|\newline|；\newline
+2. 如果一个命令有可选参数（不论有几个），都应该被写在[和]之间；\newline
+3. 如果一个命令有必选参数（不论有几个），都应该被写在\{和\}之间。\newline
+
+% 展示命令的两种方式
+% 1. 使用 verbatim 环境，上面已经用到了
+% 2. 使用 \verb|| 命令，一般用在行内命令展示，下面会出现
+
+% 分段和换行是不一样的（可以从上面是否缩进看出来）
+% 1. 空一行和\par命令是分一段
+% 2. \\和\newline命令是换一行
+
+% 以上出现的两次有序列表，都是为了演示的方便
+% 当我们真正要使用有序列表的时候，尽量要使用一会下面会介绍的更规范的方式
+
+\subsection{环境 Environment} 
+环境指被\verb=\begin=和\verb=\end=命令包围的空间，提供了相对独立的命令作用范围。
+
+环境演示：
+\begin{verbatim}
+    1. 这里就是 verbatim 环境里面
+    2. 环境里的内容会收到这个环境的影响
+\end{verbatim}
+
+\subsection{包 Package}
+\LaTeX 本体包含了一些命令，但考虑到 \LaTeX 被学术界广泛的使用， 需求多种多样，内置的命令很难满足所有的情况。因此，有了包的概念，每一个包都会提供很多新的命令。
+
+目前 \LaTeX 生态有超过4000种的各种宏包，可以根据需要引入到你的文档里。一会我们下面插入图片的操作中，也会使用到特定的包。
+
+% 除了 Package 以外，还有一种叫做 Class 的文件，可以按需进一步了解
+
+\subsection{代码结构}
+一份 \LaTeX 代码（也就是左侧这边的代码），分为两大部分：导言和正文
+
+% 所有文档的完整代码，都应该有这两个部分
+%     \documentclass{article}
+
+%     \begin{document}
+%       This is a simple example
+%     \end{document}
+
+% “导言”区域以 \documentclass{} 开始，以 \begin{document} 结束
+% “正文”区域以 \begin{document} 开始，以 \end{document} 结束
+
+“导言” (Preamble) 区域里面可以放一些文档需要引用的外部包; \par
+“正文”区域实际上就是一个 document 大环境，绝大部分内容在这里面发生。 \par
+
+\section{常用命令}
+\subsection{文档结构 Document Structure}
+
+\verb=\part{}= 篇(最高级) \par
+\verb=\chapter{}= 章（第二级） \par
+\verb=\section{}= 节（第三级） \par
+\verb=\subsection{}= 小节（第四级） \par
+\verb=\subsubsection{}= 小小节（第五级） \par
+
+% 还有 \paragraph 和 \subparagraph 不做进一步展开
+
+\subsection{列表 List}
+除了控制文档结构的语句外，对我来说，第二常用的就是各种类型的列表。
+
+\vspace{1em} %空一行，只是为了美观
+
+首先，我们展示一下 \textbf{无序列表}：
+使用 itemize 环境开启无序列表，使用 \verb|\item| 命令增加列表项。
+
+\begin{itemize}
+    \item 这是第一项
+    \item 这是第二项
+    \item 基本上你可以有任意多个项
+    \item 你还可以嵌套，比如说
+    \begin{itemize}
+        \item 这是一个嵌套的无序列表
+        \item 还可以继续嵌套，我们就不演示了
+    \end{itemize}
+\end{itemize}
+
+\vspace{1em} %空一行，只是为了美观
+
+其次，我们展示一下 \textbf{有序列表}的使用：
+使用 enumerate 环境开启无序列表，使用 \verb|\item| 命令增加列表项
+
+\begin{enumerate}
+    \item 这是第一项
+    \item 这是第二项
+    \item 同样可以嵌套，方法和上面类似就不演示了
+    \item 有序和无序列表之间也可以相互嵌套
+\end{enumerate}
+
+\vspace{1em}
+
+\textbf{知识点}：
+\begin{itemize}
+    \item 列表里可以嵌套列表，还可以在两种类型列表之前相互嵌套，最多支持四层嵌套
+    \item 列表项的序号其实是可以自定义的：使用 \verb|\item[]|代替 \verb|\item|，就可以自定义你喜欢样式，比如说
+        \begin{enumerate}
+            \item[第一] 这是一项
+            \item[第二] 这是一项
+        \end{enumerate}
+\end{itemize}
+
+% 更多小知识
+% 如果想自行定义整个列表对的序号呈现方式，可以在列表环境外面加参数，比如 \begin{itemize}[label=-]
+% 如果有自己常用的序号方式，还可以通过 \newlist 命名自定义列表环境
+
+\subsection{图片}
+对于插入图片的操作，有两个准备工作：
+\begin{itemize}
+    \item 首先，需要在文档的导言区域使用命令 \verb|\usepackage{graphicx}| 加载宏包；
+    \item 其次，（最好）在导言区域通过命令 \verb|\graphicspath{path}|告诉 \LaTeX  本文档中图片所在文件夹的路径。比如在当前文档中，我们设置了图片路径为 \verb|\graphicspath{{figures/}}|
+\end{itemize}
+
+% 添加图片本身支持绝对路径和相对路径，提前声明好图片文件夹、以及把图片放在同一个文件夹里可以避免很多新手错误、降低后期维护和更换图片的难度、降低编译失败后定位问题的难度
+
+\vspace{1em}
+\textbf{那么具体怎么插入图片呢？} \par
+使用命令 \verb|\includegraphics{文件地址}| \par
+
+效果示意：\newline
+\includegraphics[width=\textwidth]{figures/hex.jpg} 
+
+% 可选参数 [width=\textwidth] 的增加，是为了控制图片的宽度
+% 可以通过各种参数的控制调整图片的长宽等
+% 还可以旋转、裁切之类的
+
+除了像刚才这样直接插入图片，更常见的，考虑到需要对图片进行很多的格式设置，以及我们需要 \LaTeX 帮助给图片增加合适的序号，所以最好创建一个 figure 环境，然后在环境里使用命令插入图片，代码和效果如图 \ref{fig:hex}：\par
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/hex.jpg} 
+    \caption{欢迎关注我的账号}
+    \label{fig:hex}
+\end{figure}
+
+% 使用 figure 环境可以让 LaTeX 帮我们自动生成图片序号
+% \includegraphices 命令中不加.jpg等后缀也可以，LaTeX 会按照不同后缀搜索整个文件夹。所以如果有同名文件，会按照一定规则选取和匹配。
+% 我一般就跟直接指定了
+
+关于使用 \LaTeX 内置命令和环境进行绘图，也作为进阶知识，感兴趣的同学可自行搜索学习。
+
+% 另外，实际上有一个重要的概念叫做浮动元素
+
+\newpage
+
+\subsection{表格}
+\LaTeX 内置的最基本的表格环境是 tabular，但是非常不好用，所以完全不建议，我们简单演示一下：\par
+
+\begin{tabular}{c|c}
+     第一行第一列&第一行第二列  \\
+     第二行第一列&第二行第二列 
+\end{tabular}
+
+% 表格里面的 \\ 用来在表格里面换行
+% 表格头部的必选参数 {c|c}中，两个c代表两列
+% 更多细节不再展开，有兴趣可以自行搜索，不过综合来说，不建议使用默认的表格
+% 对于新人友好的方式如下：
+
+由于表格，是一个看上去简单、但实际使用过程中事情很多的东西，比如说列宽的设置、合并单元格、各种表格框线的绘制等等，所以使用 \LaTeX 原生的命令绘制好复杂表格的难度过大。\par
+
+因此，最好是使用各种在线 \LaTeX 表格生成器，它们一般都支持你直接上传 Excel 表格，帮你在线转换，也可以在线填写内容生产 \LaTeX 语法的表格。 \par
+比如，网页 \url{https://www.tablesgenerator.com/} 提供的工具，如图~\ref{fig:tableTool} 。
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/table.png}
+    \caption{在线生成表格的工具举例}
+    \label{fig:tableTool}
+\end{figure}
+
+\newpage
+
+\subsection{数学}
+数学公式的 \LaTeX 的最擅长的领域，不仅可以非常方便的撰写出来各种数学公式，最最重要的是可以很好的被自动排版进论文里面，美观大方。\par
+
+数学方面，一般涉及数学符号和单位、数学公式、数学定理三部分内容。
+\begin{itemize}
+    \item 数学符号和单位涉及国内外或者不同目的的不同标准，最好跟着模版来
+    \item 数学公式设计行业公式、行间公式等
+    \item 数学定理主要是样式
+\end{itemize}
+由于以上的这些情况，数学相关的宏包和命令非常多，不过考虑到我们本系列视频的主题“从入门到够用”，这一块我们就不做进一步展开了。而是推荐新人使用在线的可视化工具。\par
+一个简单的效果演示：
+\begin{align}
+  a & = b + c + d + e \\
+    & = f + g
+\end{align}
+
+% 公式常见的环境包括 equation, align 等
+% 定理常见的宏包和环境包括 amsthm, thoerem 等
+
+像表格的处理一样，有需要插入数学公式的同学可以使用一些在线工具，比如，网页 \url{https://www.latexlive.com/} 提供的工具，如图~\ref{fig:mathTool} 。
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/math.png}
+    \caption{在线生成数学公式的工具举例}
+    \label{fig:mathTool}
+\end{figure}
+
+还有一些工具，可以直接识别你拍的照片或者手写的公式，比如，网页 \url{https://mathpix.com/} 提供的工具,如图~\ref{fig:handwriteTool} 。
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/handwrite.png}
+    \caption{在线生成数学公式的工具举例}
+    \label{fig:handwriteTool}
+\end{figure}
+
+\newpage
+
+\subsection{脚注 Footnote}
+这部分就轻松愉快了，是一个我非常喜欢的小功能，但是很方便。可以在文档中的任意位置增加脚注，比如说这里 \footnote{括号里写的内容都会被添加到页面底部，不论这个段落被各种图表挤到了哪一页} \par
+
+具体的命令是 \verb|\footnote{}|
+
+% 当然也可以通过可选参数自定义脚注的编号
+
+\subsection{引用}
+引用也非常的简单，在任意需要添加引用的位置，比如这里 \cite{zhangkun1994}，使用命令 \verb|\cite{}|（花括号里填写引文信息）\par
+
+当然，前提是你已经把引用的来源，添加到了.bib文件中。这里我们演示一下，在知网或百度学术里面如何获得 BibTeX 的内容，如果需要以后有空我会介绍一下如何在 Zotero 中直接获取这个信息以及如何使用 Zotero 进行文献管理。\footnote{关注@六边形游乐场}
+
+\section{其他}
+\subsection{常用符号}
+以下是一些可能会用到的常用符号：
+\begin{itemize}
+    \item  单引号 \verb|`和'|，分别是左单引号`和右单引号'
+    \item  双引号 \verb|`和"|，分别是左双引号`和右双引号"
+    \item  LaTeX 符号 \verb|\LaTeX|,效果是一个美观的 \LaTeX 符号  
+    \item  省略号 \verb|\dots|,效果是一个常见的省略号 \dots
+\end{itemize}
+
+\subsection{文字样式}
+\begin{itemize}
+    \item 加粗 \verb=\textbf{}= \textbf{bold}
+    \item 下划线 \verb=\underline{}= \underline{underline}
+    \item 斜体 \verb=\textit{}= \textit{italic}
+\end{itemize}
