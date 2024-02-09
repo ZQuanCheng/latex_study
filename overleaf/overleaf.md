@@ -75,6 +75,8 @@
 > 
 > <font color="pink">（2）页面结构 </font>
 > 
+> > <font color="gree">
+> > 
 > > 左上角：文件结构树
 > > 
 > > 左下角：文章层级结构、大纲
@@ -82,6 +84,8 @@
 > > 中间：纯文本
 > > 
 > > 右侧：编译结果、错误语句
+> > 
+> > </font>
 > > 
 > > <div align=center>
 > > <img src="./images/overleaf_5.png"  style="zoom:100%"/>
@@ -255,7 +259,7 @@
 > > <img src="./images/overleaf_19.png"  style="zoom:100%"/>
 > > </div> 
 > > 
-> > 命令和文字混排时，要记得：每次命令结束之后，给一个空格
+> > <font color="gree"> 命令和文字混排时，要记得：每次命令结束之后，给一个空格 </font>
 > > 
 > > ```latex
 > > 命令是 LaTeX 里最基本的指令语句，以反斜杠开头，一般以空格结束，形态是：
