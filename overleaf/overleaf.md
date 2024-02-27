@@ -1,4 +1,31 @@
 
+### 如果overlea编译超时怎么办?
+
+> 主要是因为图片太多了，不能和文本、表格放在一起渲染。
+>
+> 我们先渲染除了图片以外的内容
+> 
+> 1. 先用 `Fast [draft]`
+> 
+> <div align=center>
+> <img src="./images/Compilation_timeout_1.png"  style="zoom:100%"/>
+> <img src="./images/Compilation_timeout_2.png"  style="zoom:100%"/> 
+> </div> 
+> 
+> 然后渲染图片
+> 
+> 2. 后用 `Normal`
+> 
+> <div align=center>
+> <img src="./images/Compilation_timeout_3.png"  style="zoom:100%"/>
+> <img src="./images/Compilation_timeout_4.png"  style="zoom:100%"/>
+> </div> 
+> 
+> 
+> 
+> 
+
+
 ### 网址、账户
 
 >
