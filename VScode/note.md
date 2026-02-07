@@ -186,11 +186,17 @@
     "markdown-preview-enhanced.codeBlockTheme": "monokai.css",
 
 
-    "latex-workshop.latex.autoBuild.run": "never",
+    // 自动编译
+    "latex-workshop.latex.autoBuild.run": "onFileChange", // "onFileChange"在文件更改时自动编译；"never"从不自动编译
+    // 右键菜单
     "latex-workshop.showContextMenu": true,
+    // 从使用的包中自动补全命令和环境
     "latex-workshop.intellisense.package.enabled": true,
+    // 编译出错时设置是否弹出气泡设置：显示错误
     "latex-workshop.message.error.show": false,
+    // 编译出错时设置是否弹出气泡设置：显示警告
     "latex-workshop.message.warning.show": false,
+    // 编译工具和命令
     "latex-workshop.latex.tools": [
         {
             "name": "xelatex",
@@ -232,6 +238,7 @@
             ]
         }
     ],
+    // 用于配置编译链
     "latex-workshop.latex.recipes": [
         {
             "name": "XeLaTeX",
@@ -276,6 +283,7 @@
             ]
         },
     ],
+    // 文件清理。此属性必须是字符串数组
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
         "*.bbl",
@@ -297,8 +305,11 @@
         "*.log",
         "*.fdb_latexmk"
     ],
-    "latex-workshop.latex.autoClean.run": "onFailed",
+    // 构建失败后自动清除
+    "latex-workshop.latex.autoClean.run": "onFailed", // "onFaild"在构建失败后清除辅助文件；"onBuilt"编译后自动清理无用文件
+    // 使用上次的recipe编译组合
     "latex-workshop.latex.recipe.default": "lastUsed",
+    // 用于反向同步的内部查看器的键绑定。ctrl/cmd +点击(默认)或双击
     "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click"
 }
 ```
