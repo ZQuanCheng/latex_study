@@ -282,6 +282,31 @@
                 "pdflatex"
             ]
         },
+        {
+            "name": "Biber",
+            "tools": [
+                "biber"
+            ]
+        },
+        {
+            "name": "xelatex -> biber -> xelatex*2",
+            "tools": [
+                "xelatex",
+                "biber",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        
+        {
+            "name": "pdflatex -> biber -> pdflatex*2",
+            "tools": [
+                "pdflatex",
+                "biber",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
     ],
     // 文件清理。此属性必须是字符串数组
     "latex-workshop.latex.clean.fileTypes": [
@@ -306,7 +331,7 @@
         "*.fdb_latexmk"
     ],
     // 构建失败后自动清除
-    "latex-workshop.latex.autoClean.run": "onFailed", // "onFaild"在构建失败后清除辅助文件；"onBuilt"编译后自动清理无用文件
+    "latex-workshop.latex.autoClean.run": "onBuilt", // "onFaild"在构建失败后清除辅助文件；"onBuilt"编译后自动清理无用文件
     // 使用上次的recipe编译组合
     "latex-workshop.latex.recipe.default": "lastUsed",
     // 用于反向同步的内部查看器的键绑定。ctrl/cmd +点击(默认)或双击
