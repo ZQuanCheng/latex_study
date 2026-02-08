@@ -331,11 +331,11 @@
         "*.fdb_latexmk"
     ],
     // 构建失败后自动清除
-    "latex-workshop.latex.autoClean.run": "onBuilt", // "onFaild"在构建失败后清除辅助文件；"onBuilt"编译后自动清理无用文件
+    "latex-workshop.latex.autoClean.run": "onBuilt", // "onFailed"在构建失败后清除辅助文件；"onBuilt"编译后自动清理无用文件
     // 使用上次的recipe编译组合
     "latex-workshop.latex.recipe.default": "lastUsed",
     // 用于反向同步的内部查看器的键绑定。ctrl/cmd +点击(默认)或双击
-    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click"
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
 }
 ```
 >  
