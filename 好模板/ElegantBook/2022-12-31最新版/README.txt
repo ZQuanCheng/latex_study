@@ -1,0 +1,3 @@
+ElegantBook-master.zip 原始代码
+
+ElegantBook-master_update.rar 为避免参考文献无法编译，documentclass的控制参数添加bibend=bibtex
